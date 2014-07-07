@@ -74,3 +74,5 @@ $import->setTimeZone($tz);
 
 //import calendar
 $import->import();
+
+echo 'Objects imported: ' . $import->getCount() . $nl;
