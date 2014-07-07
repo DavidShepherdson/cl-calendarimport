@@ -62,12 +62,13 @@ OC_Util::checkAppEnabled('calendar');
 OC_App::loadApp('calendar');
 
 //delete all old calendar entries
-$stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*clndr_objects` WHERE `calendarid` = ?' );
-$stmt->execute(array($calendarid));
+// $stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*clndr_objects` WHERE `calendarid` = ?' );
+// $stmt->execute(array($calendarid));
 
 //initialize a new import object
 $import = new OC_Calendar_Import($ics);
 $import->setCalendarID($calendarid);
+$import->setOverwrite(true);
 $import->setProgresskey(false);
 $import->setTimeZone($tz);
 
